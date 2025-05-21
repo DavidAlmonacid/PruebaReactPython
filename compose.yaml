@@ -9,6 +9,15 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /app
+          ignore:
+            - .venv/
+        - action: rebuild
+          path: ./backend/uv.lock
 
   db:
     container_name: mssql_db
@@ -20,8 +29,6 @@ services:
       - MSSQL_SA_PASSWORD=SuperSecretPassword123!
     ports:
       - 1433:1433
-    volumes:
-      - mssql_data:/var/opt/mssql
     healthcheck:
       test:
         [
@@ -31,6 +38,7 @@ services:
           "localhost",
           "-U",
           "sa",
+          "-C",
           "-P",
           "SuperSecretPassword123!",
           "-Q",
@@ -39,3 +47,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    volumes:
+      - mssqldata:/var/opt/mssql
+
+volumes:
+  mssqldata:
