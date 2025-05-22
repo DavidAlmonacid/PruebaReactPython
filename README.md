@@ -8,3 +8,5 @@
 - De software:
   - Tener instalado Docker Engine versión 1.8 o superior.
   - Tener instalado **sqlcmd** para conexión a SQL Server vía CLI.
+
+![alt text](screenshots/queries-order.png)
