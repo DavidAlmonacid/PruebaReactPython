@@ -13,6 +13,10 @@
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
 
+  "postCreateCommand": {
+    "Install python with uv": "uv python install cpython-3.13.3-linux-x86_64-gnu"
+  },
+
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [8000, 1433],
   "customizations": {
