@@ -1,0 +1,23 @@
+{
+  "dbcode.connections": [
+    {
+      "connectionId": "y7HZYXzxcrm8RGKcoRWKo",
+      "name": "Prueba React Python",
+      "driver": "mssql",
+      "color": "#F33246",
+      "host": "localhost",
+      "port": 1433,
+      "ssl": false,
+      "driverOptions": {
+        "authType": "sql"
+      },
+      "username": "sa",
+      "password": "",
+      "savePassword": "secretStorage",
+      "database": "gps_devices_db",
+      "readOnly": false,
+      "connectionTimeout": 30,
+      "connectionType": "host"
+    }
+  ]
+}
