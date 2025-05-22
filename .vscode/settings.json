@@ -1,23 +1,23 @@
 {
-  "dbcode.connections": [
+  "mssql.connections": [
     {
-      "connectionId": "y7HZYXzxcrm8RGKcoRWKo",
-      "name": "Prueba React Python",
-      "driver": "mssql",
-      "color": "#F33246",
-      "host": "localhost",
+      "server": "localhost,1433",
       "port": 1433,
-      "ssl": false,
-      "driverOptions": {
-        "authType": "sql"
-      },
-      "username": "sa",
-      "password": "",
-      "savePassword": "secretStorage",
       "database": "gps_devices_db",
-      "readOnly": false,
-      "connectionTimeout": 30,
-      "connectionType": "host"
+      "user": "sa",
+      "password": "",
+      "authenticationType": "SqlLogin",
+      "encrypt": "true",
+      "trustServerCertificate": true,
+      "connectTimeout": 30,
+      "commandTimeout": 30,
+      "connectRetryCount": 1,
+      "connectRetryInterval": 10,
+      "applicationName": "vscode-mssql",
+      "savePassword": true,
+      "profileName": "",
+      "groupId": "1BBD97C6-5A5F-48D1-AC1B-FFEFF1FDFDBA",
+      "id": "9F6510A0-544F-45FC-BB36-64D8DC2051F1"
     }
   ]
 }

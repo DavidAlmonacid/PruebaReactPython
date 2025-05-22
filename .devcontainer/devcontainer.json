@@ -18,17 +18,17 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "ms-azuretools.vscode-docker",
         "usernamehw.errorlens",
-        "ms-azuretools.vscode-containers",
         "ms-python.python",
         "charliermarsh.ruff",
         "tamasfe.even-better-toml",
-        "dbcode.dbcode",
         "humao.rest-client",
         "oven.bun-vscode",
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "ms-mssql.mssql"
       ]
     }
   }
