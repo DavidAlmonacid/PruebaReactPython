@@ -53,6 +53,31 @@
 
     ![alt text](screenshots/successful.png)
 
+11. Una vez que se ha creado la base de datos, podemos abrir el navegador de preferencia y escribir la siguiente URL para acceder a la documentación de la API en formato **Swagger**:
+
+    ```bash
+    http://localhost:8000/docs
+    ```
+
+    ![alt text](screenshots/docs-get-api.png)
+
+    Datos de ejemplo para la creación de un nuevo dispositivo:
+
+    ```json
+    {
+      "Manufacturer": "Coban",
+      "Model": "ASDFG3003",
+      "ImageUrl": "https://www.vpcivil.co.in/wp-content/uploads/2016/12/garmin-gpsmap-64s-mapping-handheld-gps-5.jpg",
+      "Stock": 3,
+      "Price": 150,
+      "Description": "EL mejor GPS que existe"
+    }
+    ```
+
+    ![alt text](screenshots/docs-post-api-1.png)
+
+    ![alt text](screenshots/docs-post-api-2.png)
+
 ---
 
 ![alt text](screenshots/queries-order.png)
