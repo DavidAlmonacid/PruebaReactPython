@@ -34,11 +34,11 @@ services:
         [
           "CMD",
           "/opt/mssql-tools18/bin/sqlcmd",
+          "-C",
           "-S",
           "localhost",
           "-U",
           "sa",
-          "-C",
           "-P",
           "SuperSecretPassword123!",
           "-Q",
@@ -49,7 +49,6 @@ services:
       retries: 5
     volumes:
       - mssqldata:/var/opt/mssql
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   mssqldata:
