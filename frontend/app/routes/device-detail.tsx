@@ -4,17 +4,28 @@ import { Link, useParams } from "react-router";
 export default function DeviceDetail() {
   const { id } = useParams();
   const [device, setDevice] = useState<Device | undefined>(undefined);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/v1/devices`)
-      .then((response) => response.json())
-      .then((devices: Device[]) => {
-        setDevice(devices.find((device) => device.Id === Number(id)));
-      });
+    fetch(`http://localhost:8000/api/v1/devices/${id}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        return response.json();
+      })
+      .then(setDevice)
+      .catch((error) => console.error("Error fetching device:", error))
+      .finally(() => setLoading(false));
   }, [id]);
 
-  if (device == null) {
+  if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (!device) {
+    return <div>Device not found.</div>;
   }
 
   return (

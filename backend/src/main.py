@@ -70,6 +70,52 @@ async def get_devices() -> list[Device]:
     return devices
 
 
+@app.get("/api/v1/devices/{device_id}", response_model=Device)
+async def get_device(device_id: int) -> Device:
+    conn = get_db_connection()
+
+    if conn is None:
+        raise RuntimeError("Database connection couldn't be established.")
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+            SELECT
+                Id,
+                Manufacturer,
+                Model,
+                ImageUrl,
+                Stock,
+                Price,
+                Description,
+                CAST(CreatedAt AS VARCHAR(33)) AS CreatedAt,
+                CAST(UpdatedAt AS VARCHAR(33)) AS UpdatedAt
+            FROM Devices
+            WHERE Id = ?
+            """,
+            device_id,
+        )
+
+        row = cursor.fetchone()
+        if row is None:
+            raise HTTPException(status_code=404, detail="Device not found.")
+
+        return Device(
+            Id=row[0],
+            Manufacturer=row[1],
+            Model=row[2],
+            ImageUrl=row[3],
+            Stock=row[4],
+            Price=row[5],
+            Description=row[6],
+            CreatedAt=parse_datetime(row[7]),
+            UpdatedAt=parse_datetime(row[8]),
+        )
+    finally:
+        conn.close()
+
+
 @app.post("/api/v1/devices", response_model=Device, status_code=201)
 async def create_device(device: DeviceCreate):
     conn = get_db_connection()
