@@ -6,8 +6,9 @@ import {
   Scripts,
   ScrollRestoration
 } from "react-router";
-
 import type { Route } from "./+types/root";
+
+import { Header } from "./header/header";
 import { ThemeProvider } from "./theme-context";
 
 import "./app.css";
@@ -35,7 +36,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Meta />
           <Links />
         </head>
+
         <body>
+          <Header />
           {children}
           <ScrollRestoration />
           <Scripts />

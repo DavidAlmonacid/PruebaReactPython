@@ -22,17 +22,21 @@ export default function Home() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="p-6 text-gray-900 dark:text-gray-100">Loading...</div>
+    );
   }
 
   return (
-    <div>
-      <h1>Dispositivos GPS</h1>
-
-      <ul>
+    <div className="container mx-auto p-6 text-gray-900 dark:text-gray-100">
+      <h1 className="text-2xl font-bold mb-6">Dispositivos GPS</h1>
+      <ul className="space-y-2">
         {devices.map((device) => (
           <li key={device.Id}>
-            <Link to={`/device/${device.Id}`}>
+            <Link
+              to={`/device/${device.Id}`}
+              className="hover:underline hover:text-blue-600 dark:hover:text-blue-400"
+            >
               {device.Manufacturer} {device.Model}
             </Link>
           </li>
