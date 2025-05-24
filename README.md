@@ -101,3 +101,7 @@
     ```
 
     ![alt text](screenshots/devices-list.png)
+
+---
+
+With love, David Almonacid.
