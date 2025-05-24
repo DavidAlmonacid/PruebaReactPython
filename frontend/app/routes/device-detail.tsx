@@ -85,7 +85,7 @@ export default function DeviceDetail() {
                   d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m5-9v9m4-9v9m4-9l2 9"
                 />
               </svg>
-              Añadir al carrito
+              Add to cart
             </button>
           </div>
         </div>
