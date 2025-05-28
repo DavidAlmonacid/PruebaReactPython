@@ -46,11 +46,10 @@ services:
   db:
     container_name: mssql_db
     hostname: mssql_db
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    build:
+      context: ./database
+      dockerfile: Dockerfile
     restart: always
-    environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=SuperSecretPassword123!
     ports:
       - 1433:1433
     healthcheck:
