@@ -1,38 +1,43 @@
+## Requisitos previos
+
+- Tener instalado VS Code
+- Tener vinculado VS Code con la cuenta de GitHub
+- Tener instalada la extensión de GitHub Codespaces en VS Code
+
 ## Pasos para ejecutar el proyecto
 
-1. Hacer clic en el botón "**Code**", luego en los tres puntos al lado del botón más "**+**", en el apartado de **Codespaces**.
+1. Hacer fork del repositorio de GitHub.
 
-    ![alt text](screenshots/codespaces.png)
+    ![alt text](screenshots/fork.png)
 
-2. Se abrirá un modal, dar clic en "**+ New with options...**".
+    > [!IMPORTANT]
+    > Desde ahora vamos a realizar los siguientes pasos en el fork creado.
 
-    ![alt text](screenshots/new-codespace.png)
+1. Hacer clic en el botón "**Code**", luego en el botón "**Create codespace on main**", en el apartado de **Codespaces**, y esperar a que se cree el espacio de trabajo.
 
-3. Se abrirá una nueva página, en el apartado de **Machine type**, abrir el desplegable y seleccionar "**4-core**", la cual consta de 16GB RAM y es suficiente para la ejecución del proyecto.
+    ![alt text](screenshots/create-codespace-main.png)
 
-    ![alt text](screenshots/machine-type.png)
+1. Una vez terminado de crear el espacio de trabajo, cerramos la ventana del navegador y retornamos nuevamente a la URL del fork del repositorio, veremos que hay un espacio de trabajo creado, procedemos a dar click en el botón de los tres puntos **(...)**, que se encuentra al lado del status del espacio de trabajo, este abre un nuevo menú y en este menú damos click en la opción que dice **Open in Visual Studio Code**.
 
-4. Dar clic en "**Create codespace**" y esperar a que se cree el espacio de trabajo.
+    ![alt text](screenshots/open-vscode.png)
 
-    ![alt text](screenshots/create-codespace.png)
-
-5. Ejecutar el siguiente comando en la terminal en la ruta de la raíz del proyecto, para iniciar la creación de los contenedores de Docker:
+1. Ejecutar el siguiente comando en la terminal, para iniciar la creación de los contenedores de Docker:
 
     ```bash
     cd /workspaces/PruebaReactPython && docker compose up --build
     ```
 
-6. Mientras se crean los contenedores, ejecutar el siguiente comando en una nueva terminal en la ruta de la raíz del proyecto, para instalar **Microsoft ODBC 18**, el cual es necesario para la conexión a SQL Server:
+1. Mientras se crean los contenedores, ejecutar el siguiente comando en una nueva terminal, para instalar **Microsoft ODBC 18**, el cual es necesario para la conexión a SQL Server:
 
     ```bash
     cd /workspaces/PruebaReactPython && source post-create.sh
     ```
 
-7. Abrir la extensión de **SQL Server**, la cual se identifica con el siguiente ícono:
+1. Abrir la extensión de **SQL Server**, la cual se identifica con el siguiente ícono:
 
     ![alt text](screenshots/icono-sql-server.png)
 
-8. Ingresar los datos de conexión a la base de datos, y luego dar clic en "**Connect**":
+1. Ingresar los datos de conexión a la base de datos, y luego dar clic en "**Connect**":
 
     - **Server name**: localhost,1433
     - **Authentication type**: SQL Login
@@ -41,11 +46,11 @@
 
     ![alt text](screenshots/datos-conexion.png)
 
-9. Abrir el archivo **init.sql**, el cual se encuentra en la ruta **./database/init.sql** y ejecutar el script que se encuentra en él, dando clic en el botón de "**Run**" (el ícono de un triángulo verde) en la parte superior de la ventana del editor.
+1. Abrir el archivo **init.sql**, el cual se encuentra en la ruta **./database/init.sql** y ejecutar el script que se encuentra en él, dando clic en el botón de "**Run**" (el ícono de un triángulo verde) en la parte superior de la ventana del editor.
 
     ![alt text](screenshots/run-script.png)
 
-10. Se abrirá un modal, seleccionar la primer opción, la cual dice "**localhost,1433**", debe ejecutarse el script sin inconvenientes.
+1. Se abrirá un modal, seleccionar la primer opción, la cual dice "**localhost,1433**", debe ejecutarse el script sin inconvenientes.
 
     ![alt text](screenshots/seleccion.png)
 
@@ -53,7 +58,18 @@
 
     ![alt text](screenshots/successful.png)
 
-11. Una vez que se ha creado la base de datos, podemos abrir el navegador de preferencia y escribir la siguiente URL para acceder a la documentación de la API en formato **Swagger**:
+    > [!NOTE]
+    > Se pueden realizar consultas a la base de datos desde el archivo **query.sql**, ubicado en la ruta **./database/query.sql**. Este archivo contiene ejemplos de consultas que se pueden realizar a la base de datos ordenando los dispositivos por precio y stock.
+
+    ![alt text](screenshots/queries-order.png)
+
+1. Una vez que se ha creado la base de datos, podemos dirigirnos al apartado de **ports** de VS Code.
+
+    ![alt text](screenshots/ports.png)
+
+    Si no hay puertos expuestos, hacer clic en el botón **Add Port**, y agregamos los puertos **8000** y **3000** para visualizar la aplicación en el navegador.
+
+1. En el navegador de preferencia podemos dirigirnos a la documentación de la API en formato **Swagger**, la cual se encuentra en la siguiente URL:
 
     ```bash
     http://localhost:8000/docs
@@ -78,6 +94,14 @@
 
     ![alt text](screenshots/docs-post-api-2.png)
 
+1. Para visualizar la aplicación de React Router, podemos dirigirnos a la siguiente URL, en donde se pueden ver los dispositivos creados:
+
+    ```bash
+    http://localhost:3000
+    ```
+
+    ![alt text](screenshots/devices-list.png)
+
 ---
 
-![alt text](screenshots/queries-order.png)
+With love, David Almonacid.
