@@ -1,10 +1,10 @@
 IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'gps_devices_db')
 BEGIN
-	CREATE DATABASE gps_devices_db;
+	CREATE DATABASE GpsDevicesDb;
 END
 GO
 
-USE gps_devices_db;
+USE GpsDevicesDb;
 GO
 
 -- Create the Devices table

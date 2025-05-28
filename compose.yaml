@@ -25,7 +25,7 @@ services:
     environment:
       - DB_SERVER=db
       - DB_PORT=1433
-      - DB_NAME=gps_devices_db
+      - DB_NAME=GpsDevicesDb
       - DB_USER=sa
       - DB_PASSWORD=SuperSecretPassword123!
     ports:
