@@ -15,3 +15,6 @@ rm packages-microsoft-prod.deb
 
 sudo apt-get update
 sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
+
+# Run the SQL Server container to set up the database
+docker exec -it mssql_db /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P SuperSecretPassword123! -i /database/init.sql

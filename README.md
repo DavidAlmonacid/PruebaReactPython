@@ -10,7 +10,8 @@
 
     ![alt text](screenshots/fork.png)
 
-    > [!IMPORTANT]
+    > ¡IMPORTANTE!
+    >
     > Desde ahora vamos a realizar los siguientes pasos en el fork creado.
 
 1. Hacer clic en el botón "**Code**", luego en el botón "**Create codespace on main**", en el apartado de **Codespaces**, y esperar a que se cree el espacio de trabajo.
@@ -21,13 +22,13 @@
 
     ![alt text](screenshots/open-vscode.png)
 
-1. Ejecutar el siguiente comando en la terminal, para iniciar la creación de los contenedores de Docker:
+1. Ejecutar el siguiente comando en la terminal, para iniciar la creación de los contenedores de Docker, y esperar a que se creen los contenedores:
 
     ```bash
     cd /workspaces/PruebaReactPython && docker compose up --build
     ```
 
-1. Mientras se crean los contenedores, ejecutar el siguiente comando en una nueva terminal, para instalar **Microsoft ODBC 18**, el cual es necesario para la conexión a SQL Server:
+1. Una vez ya creados los contenedores, ejecutar el siguiente comando en una nueva terminal, lo cual instalará **Microsoft ODBC 18**, y creará la base de datos:
 
     ```bash
     cd /workspaces/PruebaReactPython && source post-create.sh
@@ -46,20 +47,17 @@
 
     ![alt text](screenshots/datos-conexion.png)
 
-1. Abrir el archivo **init.sql**, el cual se encuentra en la ruta **./database/init.sql** y ejecutar el script que se encuentra en él, dando clic en el botón de "**Run**" (el ícono de un triángulo verde) en la parte superior de la ventana del editor.
-
-    ![alt text](screenshots/run-script.png)
-
-1. Se abrirá un modal, seleccionar la primer opción, la cual dice "**localhost,1433**", debe ejecutarse el script sin inconvenientes.
-
-    ![alt text](screenshots/seleccion.png)
-
-    En la extensión de SQL Server, se puede observar que se ha creado la base de datos, la tabla y el procedimiento almacenado.
+1. En la extensión de SQL Server, se puede observar que se ha creado la base de datos, la tabla y el procedimiento almacenado.
 
     ![alt text](screenshots/successful.png)
 
-    > [!NOTE]
+    > ¡NOTA!
+    >
     > Se pueden realizar consultas a la base de datos desde el archivo **query.sql**, ubicado en la ruta **./database/query.sql**. Este archivo contiene ejemplos de consultas que se pueden realizar a la base de datos ordenando los dispositivos por precio y stock.
+    >
+    > Para ejecutar las consultas, dar clic en el botón de "**Run**" (el ícono de un triángulo verde) en la parte superior de la ventana del editor.
+
+    ![alt text](screenshots/run-queries.png)
 
     ![alt text](screenshots/queries-order.png)
 
@@ -104,4 +102,4 @@
 
 ---
 
-With love, David Almonacid.
+With love 🧡, David Almonacid.
